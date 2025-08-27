@@ -1,0 +1,16 @@
+{% extends 'basic_app/base.html' %} {% load static %} {% block body_block %}
+{%if registered %}
+<h1>Thanks for registering</h1>
+{%elif user.is_authenticated%}
+<h1>
+  Please Logout First
+  <h1>
+    {% else%}
+    <h1>Register Here</h1>
+    <form class="form-control" method="POST" enctype="multipart/form-data">
+      {{user_form.as_p}} {%csrf_token%} {{profile_form.as_p}}
+      <input type="submit" value="Register" />
+    </form>
+    {% endif %} {% endblock body_block %}
+  </h1>
+</h1>
